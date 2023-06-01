@@ -2,12 +2,12 @@ import { useState } from "react";
 import islands from "../data/islands";
 import Island from "./Island";
 
-export default function IslandList() {
+export default function IslandList({ setisland }) {
   const [query, setQuery] = useState("");
 
   let islandsArray = islands
     .filter((island) => island.name.toLowerCase().includes(query.toLowerCase()))
-    .map((island) => <Island island={island} />);
+    .map((island) => <Island island={island} setisland={setisland} />);
   return (
     <div>
       <input
